@@ -1,0 +1,58 @@
+database is space where we store data in structured and organized data.
+data means is a meaningfull value.
+
+
+MYSQL, MONGODB, ORACLE DB -- EX for database
+
+db name & table name should be same
+
+table is used to store 
+
+hard coded: the table heading (column names)
+dynamic data: the rows data
+
+datatype:
+VARCHAR
+INT 
+FLOAT
+DOUBLE
+BIT
+BOOLEAN 
+
+ASSIGNMENT:
+DATA, DB, TYPES OF DB, WHICH COMPANY IS GIVING WHICH DB?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
