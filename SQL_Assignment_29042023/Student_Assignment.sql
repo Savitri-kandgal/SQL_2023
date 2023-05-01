@@ -101,5 +101,3 @@ select sum(Percentage) from student where StdClass=12;
 
 
 
-
-

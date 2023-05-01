@@ -148,3 +148,87 @@ primary key(col1));
 show name who scored least % 
 show name who scored max %
 and try auto_increment 
+
+-- substr
+select ename from empl where substr(ename, 4, 1)='t';  --  
+
+-- like
+select ename from empl where ename like 'a%';  -- name which contains 'a' at 1st possition
+
+-- 6. Write a query to display the name of employee whose name contains “A” as third alphabet?
+select ename from empl where ename like '__a%'; -- one '_' wl considered as 1 letter
+
+-- 7: Write a query to display the name of employee whose name contains “T” as last alphabet?
+select ename from empl where ename like '%t';
+select ename from empl where ename like 'a%a'; -- this wl find a name which starts & ends with 'a'  
+
+-- 8. Write a query to display the name of employee whose name contains ”M” as First and “L” as third alphabet?
+ select ename from empl where ename like 'm_l%';
+
+-- if else condition
+-- 9. Write a query to display details of employs with the text “Not given”, if commission is null?
+select comm, case when comm is null then 'not given' else comm end as status from empl;
+
+-- in 
+select * from tb_nm where col1 in(value, value);
+-- in with not
+select * from tb_nm where col1 not in(value, value);
+
+-- between : provide the value between the range
+select ename, sal from empl where sal between 2500 and 4000; -- this 
+-- between with not: provide the value not between the range
+select ename, sal from empl where sal not between 2500 and 4000;
+
+-- as : used for alias name
+select col as new_name from tb_nm; -- alias name for single col
+select * from tb_nm as new tb_nm; -- alias name for table
+select col1 as new_name, col2 as new_nm from tb_nm; -- alias name for multiple cols
+
+-- delete : to delete the perticular row 
+delete from student where col='value'; 
+delete from student; -- this wl also delete all data from table, but that is not meant to do that so should always use truncate
+
+-- truncate : to delete all data from table, 0 rows wl be effected
+truncate table tb_nm;
+
+-- drop and truncate : we cant get the data back if we use drop and truncate
+-- delete: we can get the data back after deleting but we need to write additional query i.e, rollback 
+
+--  between for date
+SELECT * FROM db6.student;
+select * from student where DOB between '2006-06-26' and '2009-06-26';
+
+--  between for names
+select StdName from student where StdName between 'Anjali' and 'Kavana';
+
+-- datetime, date, year 
+create table employee1(id int, name varchar(50), DOB datetime, joinedDate date, joinedYear year);
+
+-- check : to put condition for int values - not working
+create table employee2(id int, name varchar(50), DOB datetime, joinedDate date, joinedYear year, check(id>=5 and name='suma'));
+insert into employee2 values(1, 'suma', '2000-01-01 01:30:40', '2020-10-01', '2020'); 
+
+create table employee4(age int, name varchar(50), DOB datetime, joinedDate date, joinedYear year, check(year>=2000));
+insert into employee4 values(1, 'suma', '2000-01-01 01:30:40', '2020-10-01', '1999'); 
+
+
+-- to get todays date & time
+select current_timestamp() as current_date_time;
+
+-- to get todays date
+select current_date() as todaysDate;
+
+-- to get the current user
+select current_user() as currentUser;
+
+-- to get current time
+select current_time() as timenow;
+
+-- applied current_timestamp
+create table employee5(age int, name varchar(50), DOB datetime, joinedDate datetime default current_timestamp);
+insert into employee5(age, name, DOB) values(20, 'suresh', '2000-01-01 01:30:40');
+
+
+
+
+ 
