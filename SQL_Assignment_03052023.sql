@@ -32,3 +32,14 @@ select * from student1 full join course on student1.courseId_fk=course.id;
 -- not working
 -- full join(intersection)
 select * from student1 full join course on student1.courseId_fk=course.id where student1.courseId_fk is null or course.courseName is null;
+
+-- full join (working)
+select * from student1 left join course on student1.courseId_fk=course.id
+union
+select * from student1 right join course on student1.courseId_fk=course.id; 
+
+-- full join (intersection)
+select * from student1 left join course on student1.courseId_fk=course.id where course.id is null
+union
+select * from student1 right join course on student1.courseId_fk=course.id where student1.courseId_fk is null;
+
